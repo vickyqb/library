@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['loged_in']) || $_SESSION['loged_in'] !== true) {
+if (!isset($_SESSION['loged_in']) || $_SESSION['loged_in'] !== true || $_SESSION['user_type'] !== 'admin') {
     // Redirect to login page or show error message
     header("Location: Alogin.php");
     exit;
@@ -41,146 +41,53 @@ unset($_SESSION['msg']);
 
     <section class="body d-flex w-100">
         <div class="left-side col-3 bg-success-subtle">
-        <div class="container d-flex flex-column  mt-5">
-                <a class="btn btn-primary mt-3" href="./MLbooks.php">Master List of Books</a>
+            <div class="container d-flex flex-column  mt-5">
+            <a class="btn btn-primary mt-3" href="./MLbooks.php">Master List of Books</a>
                 <a class="btn btn-primary mt-3" href="./MLmovies.php">Master List of Movies</a>
                 <a class="btn btn-primary mt-3" href="./MLmembers.php">Master List of Memberships</a>
                 <a class="btn btn-primary mt-3" href="./Activeissue.php">Active Issues</a>
                 <a class="btn btn-primary mt-3" href="./Overduereturns.php">Overdue returns</a>
                 <a class="btn btn-primary mt-3" href="./PIRequests.php">Issue Requests</a>
-                 
             </div>
         </div>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Active Issues</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Poppins', sans-serif;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-        .card-header {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px 10px 0 0;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-        }
-        .table-responsive {
-            margin-top: 15px;
-        }
-        .table {
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .table th, .table td {
-            padding: 14px;
-            text-align: center;
-            border: 1px solid #dee2e6;
-        }
-        .table th {
-            background: #007bff;
-            color: white;
-            font-size: 16px;
-        }
-        .table-striped tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
-        }
-        .table-striped tbody tr:nth-child(even) {
-            background-color: #eef1f3;
-        }
-        .table tbody tr:hover {
-            background-color: #f1f1f1;
-            transition: 0.3s ease-in-out;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .btn-custom {
-            background: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: 0.3s;
-            margin: 5px;
-            display: inline-block;
-        }
-        .btn-custom:hover {
-            background: #0056b3;
-        }
-        @media (max-width: 768px) {
-            .table {
-                font-size: 14px;
-            }
-        }
-    </style>
-</head>
-<body>
+        <div class="right-side col-9 ">
+            <div class="container d-flex flex-column"> 
+                <div class="row mt-4">
+                    <h3 class="col text-center">Overdue Return</h3>
+                </div>
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Serial No Book</th>
+                            <th>Name of Book</th>
+                            <th>Membership Id</th>
+                            <th>Date of Issue</th>
+                            <th>Date of Return</th>
+                            <th>Fine Calculations</th>
 
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-        Overdue Returns					
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>The Matrix</td>
+                            <td>MB12345</td>
+                            <td>2024-02-01</td>
+                            <td>2024-02-10</td>
+                            <td>25 rs</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Harry Potter</td>
+                            <td>MB67890</td>
+                            <td>2024-02-02</td>
+                            <td>2024-02-12</td>
+                            <td>44 rs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Serial No Book</th>
-                        <th>Name of Book</th>
-                        <th>Membership Id</th>
-                        <th>Date of Issue</th>
-                        <th>Date of Return</th>
-                        <th>Fine Calculations</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>The Matrix</td>
-                        <td>MB12345</td>
-                        <td>2024-02-01</td>
-                        <td>2024-02-10</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Harry Potter</td>
-                        <td>MB67890</td>
-                        <td>2024-02-02</td>
-                        <td>2024-02-12</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="footer">
-            <a href="index.php" class="btn-custom"><i class="fa fa-home"></i> Home</a>
-            <a href="javascript:history.back()" class="btn-custom"><i class="fa fa-arrow-left"></i> Back</a>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
-
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

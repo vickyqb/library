@@ -82,14 +82,14 @@ unset($_SESSION['msg']);
             <div class="text-center">
                 <p id="slot_result"></p>
                 <button type="submit" id="submitbtn" class="btn btn-primary">Submit</button>
-                <button class="btn btn-danger " onclick="cancle()">Cancle</button>
+                <button class="btn btn-danger " onclick="cancel()">cancel</button>
             </div>
         </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
     <script>
-    function cancle(){
+    function cancel(){
         alert("Transaction cancelled");
         window.history.back();
     }
