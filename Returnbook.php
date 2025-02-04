@@ -54,6 +54,17 @@ unset($_SESSION['msg']);
                             <option value="book4">Book 4</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+    <label for="serialNo" class="form-label">Serial No</label>
+    <select name="serialNo" id="serialNo" class="form-control" required>
+        <option value="" disabled selected>Select Serial No</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <!-- Add more options as needed -->
+    </select>
+</div>
+
                   
                     <!-- Start Date -->
                     <div class="mb-3">
@@ -65,6 +76,7 @@ unset($_SESSION['msg']);
                         <label for="edate" class="form-label">Return Date</label>
                         <input type="date" name="edate" id="edate" class="form-control" required>
                     </div>
+
 
                 </div>
 
