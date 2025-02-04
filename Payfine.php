@@ -80,15 +80,22 @@ unset($_SESSION['msg']);
                             placeholder="Type author name here" required>
                     </div>
 
+
+                    <div class="mb-3">
+                        <label for="fine" class="form-label">Fine Calculated</label>
+                        <input type="text" name="fine" id="fine" class="form-control" value="0" oninput="updateFine()">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <input type="checkbox" name="finePaid" id="finePaid" class="form-check-input">
+                        <label for="finePaid" class="form-check-label">Fine Paid</label>
+                    </div>
                     <div class="mb-3">
                         <label for="remarks" class="form-label">Remarks</label>
                         <textarea name="remarks" id="remarks" class="form-control" rows="4"
                             placeholder="Enter remarks..."></textarea>
                     </div>
-                    <div class="mb-3">
-    <label for="fine" class="form-label">Fine Calculated</label>
-    <input type="text" name="fine" id="fine" class="form-control" value="0" readonly>
-</div>
 
 
 
