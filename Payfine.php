@@ -54,48 +54,62 @@ unset($_SESSION['msg']);
                             <option value="book4">Book 4</option>
                         </select>
                     </div>
-                  
+
                     <!-- Start Date -->
                     <div class="mb-3">
                         <label for="sdate" class="form-label">Issue Date</label>
                         <input type="date" name="sdate" id="sdate" class="form-control" required>
                     </div>
-                      <!-- Return Date -->
-                      <div class="mb-3">
+                    <!-- Return Date -->
+                    <div class="mb-3">
                         <label for="edate" class="form-label">Return Date</label>
+                        <input type="date" name="edate" id="edate" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edate" class="form-label">Actual Return Date</label>
                         <input type="date" name="edate" id="edate" class="form-control" required>
                     </div>
 
                 </div>
 
                 <div class="right">
-                     <!--Enter Author Name -->
-                     <div class="mb-3">
-    <label for="fname" class="form-label">Enter Author Name</label>
-    <input type="text" name="fname" id="fname" class="form-control" placeholder="Type author name here" required>
-</div>
+                    <!--Enter Author Name -->
+                    <div class="mb-3">
+                        <label for="fname" class="form-label">Enter Author Name</label>
+                        <input type="text" name="fname" id="fname" class="form-control"
+                            placeholder="Type author name here" required>
+                    </div>
 
 
-        
+                    <div class="mb-3">
+                        <label for="fine" class="form-label">Fine Calculated</label>
+                        <input type="text" name="fine" id="fine" class="form-control" value="0" oninput="updateFine()">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <input type="checkbox" name="finePaid" id="finePaid" class="form-check-input">
+                        <label for="finePaid" class="form-check-label">Fine Paid</label>
+                    </div>
                     <div class="mb-3">
                         <label for="remarks" class="form-label">Remarks</label>
                         <textarea name="remarks" id="remarks" class="form-control" rows="4"
                             placeholder="Enter remarks..."></textarea>
                     </div>
 
-                     
-                        
-                    </div>
+
+
                 </div>
             </div>
+    </div>
 
-            <!-- Submit Button -->
-            <div class="text-center">
-                <p id="slot_result"></p>
-                <button type="submit" id="submitbtn" class="btn btn-primary">Conform</button>
-                <button class="btn btn-danger " onclick="cancle()">Cancle</button>
-            </div>
-        </form>
+    <!-- Submit Button -->
+    <div class="text-center">
+        <p id="slot_result"></p>
+        <button type="submit" id="submitbtn" class="btn btn-primary">Conform</button>
+        <button class="btn btn-danger " onclick="cancle()">Cancle</button>
+    </div>
+    </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
@@ -128,11 +142,11 @@ unset($_SESSION['msg']);
                 if (response === "available") {
                     $("#slot_result").html("<span style='color: green;'>Slot is available!</span>");
                     $("#submitbtn").prop("disabled", false)
-                .show(); // Enable the submit button if slot is available
+                        .show(); // Enable the submit button if slot is available
                 } else if (response === "unavailable") {
                     $("#slot_result").html("<span style='color: red;'>Slot is unavailable.</span>");
                     $("#submitbtn").prop("disabled", true)
-                .hide(); // Disable the submit button if slot is unavailable
+                        .hide(); // Disable the submit button if slot is unavailable
                 } else {
                     $("#slot_result").html("<span style='color: orange;'>Error: " + response + "</span>");
                     $("#submitbtn").prop("disabled", true).hide(); // Disable the submit button on error
