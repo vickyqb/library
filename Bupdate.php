@@ -1,6 +1,11 @@
 <?php
 require_once('config/db.php');
-
+session_start();
+if (!isset($_SESSION['loged_in']) || $_SESSION['loged_in'] !== true || $_SESSION['user_type'] !== 'admin') {
+    // Redirect to login page or show error message
+    header("Location: Alogin.php");
+    exit;
+}
 // Securely fetch data from the database
 $query = "SELECT * FROM items"; // Replace 'inventory' with your actual table name
 $result = mysqli_query($con, $query);

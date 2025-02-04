@@ -23,7 +23,7 @@ unset($_SESSION['msg']);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include "./layout/hlink.php"?>
-    <title>Admin Dashboard </title>
+    <title>Active issue </title>
     <style>
         .left-side{
             height: 89vh;

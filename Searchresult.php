@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['loged_in']) || $_SESSION['loged_in'] !== true || $_SESSION['user_type'] !== 'admin') {
+if (!isset($_SESSION['loged_in']) || $_SESSION['loged_in'] !== true ) {
     // Redirect to login page or show error message
     header("Location: Alogin.php");
     exit;
@@ -23,7 +23,7 @@ unset($_SESSION['msg']);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include "./layout/hlink.php"?>
-    <title>Admin Dashboard </title>
+    <title>Search Result </title>
     <style>
         .left-side{
             height: 89vh;
